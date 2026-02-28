@@ -1,0 +1,14 @@
+:root{
+    --background: #F5F5F5;
+
+    --text-color-primary: #000000;
+    --text-color-secundary: #1e1e1ecb;
+
+    --background-color-primary: #FF6F00;
+    --background-color-secundary: #121212;
+
+    --border-radius-btn: 8px;
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secundary: 'Inter', sans-serif;
+}
