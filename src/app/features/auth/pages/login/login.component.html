@@ -1,3 +1,25 @@
-<h1>Teste de fonte</h1>
-<p>login works!</p>
-<img src="images/logo/black-logo.png" alt="logo">
+<div class="containerLogin">
+    <div><img src="/images/logo/small-black-logo.png" alt="Logo do Vitrina"></div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="containerForm">
+
+        <h2 class="welcomeText">Seja bem vindo</h2>
+
+        <div class="containerEmail flexColumn">
+            <label>email</label>
+            <input type="email" formControlName="email" placeholder="vitrina@gmail.com">
+        </div>
+        <div class="containerPassword flexColumn">
+            <label>senha</label>
+            <input type="password" formControlName="password" placeholder="password">
+        </div>
+        
+        <div *ngIf="errorMessage" class="errorAlert">{{errorMessage}}</div>
+
+        <button type="submit" [disabled]="isLoading">
+            {{ isLoading ? 'Entrando...': 'Entrar'}}
+        </button>
+        <div class="dividerForm"></div>
+        <span>Novo por aqui? <a routerLink="/auth/register" class="navigateText">Venha fazer parte</a></span>
+
+    </form>
+</div>

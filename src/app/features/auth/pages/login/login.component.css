@@ -1,0 +1,75 @@
+.containerLogin{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+img{
+    width: 250px;
+    
+}
+
+
+.containerForm{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.welcomeText{
+    font-size: 2em;
+    margin: 12px;
+    font-weight: 500;
+}
+
+.containerEmail{
+    min-width: 220px;
+    margin: 12px;
+}
+.containerPassword{
+    min-width: 220px;;
+}
+
+label{
+    font-size: 1.4em;
+    font-family: var(--font-secundary);
+}
+
+input{
+        height: 36px;
+        border: 0.2px solid rgba(0, 0, 0, 0.219);
+        border-radius: 6px;
+        padding: 6px;
+
+}
+
+button{
+    border-radius: var(--border-radius-btn);
+    border: none;
+    background-color: var(--background-color-primary);
+    width: 180px;
+    margin: 12px;
+    padding: 8px;
+    color: var(--background);
+    font-weight: bold;
+    font-family: var(--font-secundary);
+}
+
+.dividerForm{
+    width: 120px;
+    height: 1px;
+    background-color: var(--background-color-primary);
+    margin: 12px;
+}
+
+.navigateText{
+    color: var(--background-color-primary);
+    text-decoration: underline;
+    font-weight: bold;
+    
+}
