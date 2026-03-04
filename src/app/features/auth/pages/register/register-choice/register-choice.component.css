@@ -1,0 +1,58 @@
+.containerQuestion{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.questionAction{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+img{
+    width: 250px;
+}
+
+.questionText{
+    font-size: 2em;
+    margin: 12px;
+    font-weight: 500;
+}
+
+button{
+    background-color: var(--background-color-primary);
+    min-width: 220px;
+    width: 320px;
+    height: 42px;
+    margin: 12px;
+    border-radius: var(--border-radius-btn);
+    border: none;
+    font-weight: bold;
+    font-family: var(--font-secundary);
+    color: var(--background);
+    cursor: pointer;
+    transition: all ease-in-out 0.6s;
+}
+
+button:hover{
+    background-color: rgba(255, 111, 0, 0.08);
+    color: #FF6F00;
+    border: 1px solid #FF6F00;
+}
+
+.dividerButtons{
+    width: 220px;
+    height: 1px;
+    background-color: var(--background-color-primary);
+    margin: 12px;
+}
+
+.navigateText{
+    color: var(--background-color-primary);
+    text-decoration: underline;
+    font-weight: bold;
+}

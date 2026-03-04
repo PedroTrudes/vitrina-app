@@ -2,15 +2,21 @@
     --background: #F5F5F5;
 
     --text-color-primary: #000000;
-    --text-color-secundary: #1e1e1ecb;
+    --text-color-secundary: #1E1E1ECB;
 
     --background-color-primary: #FF6F00;
     --background-color-secundary: #121212;
 
     --border-radius-btn: 8px;
+    --button-color-primary: #FF6F00;
+    --hover-btn-primary: rgba(255, 111, 0, 0.08);
+    
+    --button-color-secundary: #121212;
+    --hover-btn-secundary: #F5F5F5;
 
     --font-primary: 'Poppins', sans-serif;
     --font-secundary: 'Inter', sans-serif;
+
 }
 
 /* Classe helpers*/
