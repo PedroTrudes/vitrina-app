@@ -7,6 +7,14 @@ export const AUTH_ROUTES: Routes = [
     },
     {
         path: 'register',
-        loadComponent: () => import('./pages/register/register.component').then(m => m.RegisterComponent)
+        loadComponent: () => import('./pages/register/register-choice/register-choice.component').then(m => m.RegisterChoiceComponent)
+    },
+    {
+        path: 'register/create-agency',
+        loadComponent: () => import('./pages/register/create-agency/create-agency.component').then(m => m.CreateAgencyComponent)
+    },
+    {
+        path: 'register/join-agency',
+        loadComponent: () => import('./pages/register/join-agency/join-agency.component').then(m => m.JoinAgencyComponent)
     }
 ]
