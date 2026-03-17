@@ -6,16 +6,16 @@
 
         <div class="containerEmail flexColumn">
             <label>email</label>
-            <input type="email" formControlName="email" placeholder="vitrina@gmail.com">
+            <input type="email" formControlName="email" placeholder="vitrina@gmail.com" [(ngModel)]="email">
         </div>
         <div class="containerPassword flexColumn">
             <label>senha</label>
-            <input type="password" formControlName="password" placeholder="password">
+            <input type="password" formControlName="password" placeholder="password" [(ngModel)]="password">
         </div>
         
         <div *ngIf="errorMessage" class="errorAlert">{{errorMessage}}</div>
 
-        <button type="submit" [disabled]="isLoading">
+        <button type="submit" [disabled]="isLoading" (click)="login()">
             {{ isLoading ? 'Entrando...': 'Entrar'}}
         </button>
         <div class="dividerForm"></div>

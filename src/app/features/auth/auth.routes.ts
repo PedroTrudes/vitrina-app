@@ -3,11 +3,13 @@ import { Routes } from "@angular/router";
 export const AUTH_ROUTES: Routes = [
     {
         path: 'login',
-        loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent)
+        loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
+        data: {animation: 'LoginPage'}
     },
     {
         path: 'register',
-        loadComponent: () => import('./pages/register/register-choice/register-choice.component').then(m => m.RegisterChoiceComponent)
+        loadComponent: () => import('./pages/register/register-choice/register-choice.component').then(m => m.RegisterChoiceComponent),
+        data: {animation: 'LoginPage'}
     },
     {
         path: 'register/create-agency',
@@ -16,5 +18,10 @@ export const AUTH_ROUTES: Routes = [
     {
         path: 'register/join-agency',
         loadComponent: () => import('./pages/register/join-agency/join-agency.component').then(m => m.JoinAgencyComponent)
+    },
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
     }
 ]
