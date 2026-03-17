@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { LoginRequest } from '../../models/login-request.model';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,11 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class LoginComponent {
+
+  email = '';
+  password = '';
+
+
   isLoading = false;
   errorMessage = "";
   loginForm!: FormGroup;
@@ -22,6 +28,23 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router
   ) { }
+
+  login(){
+    const data: LoginRequest = {
+      email: this.email,
+      password: this.password
+    }
+
+    this.authService.login(data).subscribe({
+      next: (res) => {
+        this.authService.saveToken(res.token);
+        console.log("Login realizado")
+      },
+      error: (err) => {
+        console.error("Erro no login", err.message)
+      }
+    })
+  }
 
  ngOnInit(): void {
     this.loginForm = this.fb.group({
