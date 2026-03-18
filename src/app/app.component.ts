@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style , animate } from '@angular/animations';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('routeAnimations', [
       transition('* <=> *', [
         style({opacity: 0, transfom: 'translateX(50px)'}),
-        animate('1s ease-out', style({opacity: 1, transform: 'translateX(0px)'}))
+        animate('0.7s ease-out', style({opacity: 1, transform: 'translateX(0px)'}))
       ])
     ])
   ]
