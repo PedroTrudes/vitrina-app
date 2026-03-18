@@ -34,10 +34,11 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     }
-
+    console.log(this.isLoading);
     this.authService.login(data).subscribe({
       next: (res) => {
         this.authService.saveToken(res.token);
+        this.router.navigateByUrl('/application/dashboard')
         console.log("Login realizado")
       },
       error: (err) => {
@@ -51,6 +52,7 @@ export class LoginComponent {
     email : ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
+  console.log(this.isLoading);
  }
 
   onSubmit(){
