@@ -1,0 +1,84 @@
+.containerCreateAgency{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerCreateAgencyForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerFormAgency{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.observationButtonLinkStore{
+    width: 120px;
+    height: 22px;
+    margin: 8px 0px;
+    padding: 0px; 
+    font-size: 0.7em;
+}
+.observationLinkStore{
+    font-size: 0.8em;
+    color: var(--text-color-secundary);
+}
+
+h2{
+    font-size: 2em;
+    margin: 12px;
+    font-weight: 500;
+    max-width: 520px;
+    text-align: center;
+}
+
+label{
+    font-size: 1.4em;
+    font-family: var(--font-secundary);
+    color: var(--text-color-secundary);
+}
+
+input{
+        height: 36px;
+        width: 320px;
+        border: 0.2px solid rgba(0, 0, 0, 0.219);
+        border-radius: 6px;
+        padding: 6px;
+        color: var(--text-color-secundary);
+
+}
+
+.dividerForm{
+    width: 120px;
+    height: 1px;
+    background-color: var(--background-color-primary);
+    margin: 12px;
+}
+
+button{
+    border-radius: var(--border-radius-btn);
+    border: none;
+    background-color: var(--background-color-primary);
+    width: 320px;
+    height: 42px;
+    margin: 12px;
+    padding: 8px;
+    color: var(--background);
+    font-weight: bold;
+    font-family: var(--font-secundary);
+    cursor: pointer;
+    transition: all ease-in-out 0.6s;
+    border: 1px solid #FF6F00;
+}
+button:hover{
+    background-color: rgba(255, 111, 0, 0.08);
+    color: #FF6F00;
+    
+}
