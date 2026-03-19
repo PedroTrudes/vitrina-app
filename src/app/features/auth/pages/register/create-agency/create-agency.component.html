@@ -1,1 +1,29 @@
-<p>componente de Criar agencia</p>
+<div class="containerCreateAgency flexColumn">
+    <div class="containerLogo">
+        <img src="/images/logo/small-black-logo.png" alt="Logo do Vitrina" class="logoForms">
+    </div>
+    <div class="containerCreateAgencyForm">
+        <h2>Pronto para registrar sua loja no Vitrina?</h2>
+
+        <form [formGroup]="registerStoreForm" (ngSubmit)="onSubmit()" class="containerFormAgency">
+            <div class="flexColumn">
+                <label for="name">Nome da loja</label>
+                <input type="text" name="name" placeholder="Vitrina Cars" formControlName="name">
+            </div>
+            <div class="flexColumn">
+                <label for="slug">Link da vitrine</label>
+                <input type="text" name="slug" placeholder="vitrina-cars" formControlName="slug">
+                <span class="observationLinkStore">www.vintrina.com/{{nameStore}}</span>
+                <!--
+                -->
+            </div>
+            <div class="flexColumn">
+                <label for="email">Email</label>
+                <input type="text" name="email" placeholder="Email da loja" formControlName="email">
+            </div>
+
+            <button>Criar loja</button>
+        </form>
+
+    </div>
+</div>
