@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule ,FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../../services/user/user.service';
+import { RegisterStoreRequest } from '../../../models/register-store-request';
 
 @Component({
   selector: 'app-create-agency',
@@ -15,11 +17,22 @@ export class CreateAgencyComponent {
   slug = '';
   email = '';
   registerStoreForm!: FormGroup;
-
+  ownerId!: string; //OwnerId via Token deve ser mais facil
+  
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
   ){}
-
+  
+  registerAgency(){
+    const data: RegisterStoreRequest = {
+      name: this.name,
+      email: this.email,
+      slug: this.slug,
+      publicId: this.ownerId //OwnerId via Token deve ser mais facil
+    }
+  }
+  
   ngOnInit(): void {
     this.registerStoreForm = this.fb.group({
       name: ['', [Validators.required]],

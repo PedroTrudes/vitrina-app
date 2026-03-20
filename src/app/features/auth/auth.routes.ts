@@ -12,6 +12,11 @@ export const AUTH_ROUTES: Routes = [
         data: {animation: 'RegisterPage'}
     },
     {
+        path: 'register/create-user',
+        loadComponent: () => import('./pages/register/create-user/create-user.component').then(m => m.CreateUserComponent),
+        data: {animation: 'CreateUser'}
+    },
+    {
         path: 'register/create-agency',
         loadComponent: () => import('./pages/register/create-agency/create-agency.component').then(m => m.CreateAgencyComponent),
         data: {animation: 'CreateAgencyPage'}
