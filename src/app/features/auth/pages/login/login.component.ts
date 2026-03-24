@@ -34,12 +34,10 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     }
-    console.log(this.isLoading);
     this.authService.login(data).subscribe({
       next: (res) => {
         this.authService.saveToken(res.token);
-        this.router.navigateByUrl('/application/dashboard')
-        console.log("Login realizado")
+        this.router.navigateByUrl('/application/dashboard');
       },
       error: (err) => {
         console.error("Erro no login", err.message)
@@ -56,7 +54,7 @@ export class LoginComponent {
  }
 
   onSubmit(){
-    console.log("Enviado");
+    this.login();
   }
 
 

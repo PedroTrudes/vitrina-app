@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterStoreRequest } from '../../models/register-store-request';
 import { Observable } from 'rxjs';
-import { RegisterStoreResponse } from '../../models/register-store-response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,9 @@ export class StoreService {
 
   constructor(private http: HttpClient) { }
 
-  register(data: RegisterStoreRequest) : Observable<RegisterStoreResponse>{
-    return this.http.post<RegisterStoreResponse>(`${this.API}`, data)
+  register(data: RegisterStoreRequest, token: string) : Observable<any>{
+    const headers = new HttpHeaders({'Authorization': `Bearer ${token}`})
+    return this.http.post(`${this.API}`, data, {headers, responseType: 'text'});
   }
 
 
