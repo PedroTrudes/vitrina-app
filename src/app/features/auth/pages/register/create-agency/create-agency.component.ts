@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from "@angular/router";
+import { Router, RouterModule } from "@angular/router";
 import { ReactiveFormsModule ,FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CommonModule } from '@angular/common';
-import { UserService } from '../../../services/user/user.service';
 import { RegisterStoreRequest } from '../../../models/register-store-request';
+import { StoreService } from '../../../services/store/store.service';
 
 @Component({
   selector: 'app-create-agency',
@@ -17,20 +17,32 @@ export class CreateAgencyComponent {
   slug = '';
   email = '';
   registerStoreForm!: FormGroup;
-  ownerId!: string; //OwnerId via Token deve ser mais facil
   
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private storeService: StoreService,
+    private router : Router
   ){}
   
   registerAgency(){
+    const token = localStorage.getItem('token')
     const data: RegisterStoreRequest = {
       name: this.name,
       email: this.email,
-      slug: this.slug,
-      publicId: this.ownerId //OwnerId via Token deve ser mais facil
+      slug: this.slug
     }
+
+    this.storeService.register(data, token!).subscribe({
+      next: () => {
+        console.log("Registro de Store feito ");
+        this.router.navigateByUrl('/application/dashboard')
+
+      },error(err){
+        console.log("Erro ao criar store ", err.message);
+      }
+    })
+    console.log(data);
+    console.log(token)
   }
   
   ngOnInit(): void {
@@ -42,8 +54,7 @@ export class CreateAgencyComponent {
   }
 
   onSubmit(){
-    console.log("enviado")
-    console.log(this.registerStoreForm);
+    this.registerAgency();
   }
 
 }

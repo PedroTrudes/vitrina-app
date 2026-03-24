@@ -15,7 +15,7 @@
         
         <div *ngIf="errorMessage" class="errorAlert">{{errorMessage}}</div>
 
-        <button type="submit" [disabled]="isLoading" (click)="login()">
+        <button type="submit" [disabled]="isLoading">
             {{ isLoading ? 'Entrando...': 'Entrar'}}
         </button>
         <div class="dividerForm"></div>

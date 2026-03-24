@@ -42,8 +42,6 @@ export class CreateUserComponent {
       next: (res: RegisterUserResponse) => {
         console.log("Registro realizado com sucesso ", res);
         this.userServices.setOwnerPublicId(res.publicId);
-        console.log(res.publicId);
-        console.log(this.userServices.getOwnerPublicId());
         this.loginUser();
       },
       error(err) {
