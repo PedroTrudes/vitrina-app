@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LoginRequest } from '../../models/login-request.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   login(){
@@ -37,10 +39,11 @@ export class LoginComponent {
     this.authService.login(data).subscribe({
       next: (res) => {
         this.authService.saveToken(res.token);
+        this.toastr.success("Logado com sucesso!", "Sucesso");
         this.router.navigateByUrl('/application/dashboard');
       },
       error: (err) => {
-        console.error("Erro no login", err.message)
+        this.toastr.error("Login invalido!", "Erro")
       }
     })
   }
@@ -56,6 +59,5 @@ export class LoginComponent {
   onSubmit(){
     this.login();
   }
-
-
+  
 }

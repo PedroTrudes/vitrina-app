@@ -4,6 +4,7 @@ import { ReactiveFormsModule ,FormGroup, FormBuilder, Validators } from "@angula
 import { CommonModule } from '@angular/common';
 import { RegisterStoreRequest } from '../../../models/register-store-request';
 import { StoreService } from '../../../services/store/store.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-agency',
@@ -21,7 +22,8 @@ export class CreateAgencyComponent {
   constructor(
     private fb: FormBuilder,
     private storeService: StoreService,
-    private router : Router
+    private router : Router,
+    private toastr: ToastrService
   ){}
   
   registerAgency(){
@@ -35,14 +37,12 @@ export class CreateAgencyComponent {
     this.storeService.register(data, token!).subscribe({
       next: () => {
         console.log("Registro de Store feito ");
+        this.toastr.success("Agencia criada com sucesso", "Sucesso!")
         this.router.navigateByUrl('/application/dashboard')
-
-      },error(err){
-        console.log("Erro ao criar store ", err.message);
+      },error : (err) => {
+        this.toastr.error("Erro ao criar agencia", "Erro!")
       }
     })
-    console.log(data);
-    console.log(token)
   }
   
   ngOnInit(): void {
@@ -52,9 +52,8 @@ export class CreateAgencyComponent {
       email: ['', [Validators.required, Validators.email]]
     });
   }
-
+  
   onSubmit(){
     this.registerAgency();
   }
-
 }
