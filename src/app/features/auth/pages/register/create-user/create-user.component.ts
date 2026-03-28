@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterUserResponse } from '../../../models/register-user-response';
 import { LoginRequest } from '../../../models/login-request.model';
 import { UserService } from '../../../services/user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-user',
@@ -26,7 +27,8 @@ export class CreateUserComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private userServices: UserService
+    private userServices: UserService,
+    private toastr: ToastrService
   ){}
 
   registerUser(){
@@ -42,10 +44,12 @@ export class CreateUserComponent {
       next: (res: RegisterUserResponse) => {
         console.log("Registro realizado com sucesso ", res);
         this.userServices.setOwnerPublicId(res.publicId);
+        this.toastr.success("Usuario criado com sucesso", "Sucesso");
         this.loginUser();
       },
-      error(err) {
+      error: (err) => {
         console.log("Erro de Registro: ", err.message)
+        this.toastr.error("Erro de registro", "Erro");
       },
     })
 
@@ -64,7 +68,6 @@ export class CreateUserComponent {
       }
     })
   }
-
 
   ngOnInit(): void{
     this.registerUserForm = this.fb.group({

@@ -52,7 +52,7 @@ button{
     background-color: var(--background-color-primary);
     width: 320px;
     height: 42px;
-    margin: 0px 0px 12px 0px;
+    margin: 12px 0px;
     padding: 8px;
     color: var(--background);
     font-weight: bold;
@@ -74,4 +74,10 @@ button:hover{
     background-color: var(--background-color-primary);
     margin: 12px;
     
+}
+
+.navigateText{
+    color: var(--background-color-primary);
+    text-decoration: underline;
+    font-weight: bold;
 }
