@@ -23,6 +23,10 @@ export class AuthService {
     return this.http.post<RegisterUserResponse>(`${this.API}/register`, data);
   }
 
+  registerByInvite(data: RegisterUserRequest, inviteToken: string): Observable<RegisterUserResponse>{
+    return this.http.post<RegisterUserResponse>(`${this.API}/register-with-invite?token=${inviteToken}`, data)
+  }
+
   saveToken(token: string){
     localStorage.setItem('token', token);
   }

@@ -1,0 +1,30 @@
+<div class="containerCreateUser flexColumn">
+    <div class="containerCreateUserLogo">
+        <img src="/images/logo/small-black-logo.png" alt="Logo do Vitrina" class="logoForms" />
+    </div>
+    <div class="containerCreateUserForm">
+        <h2>Vamos criar seu usuario</h2>
+        <span class="nameStore">Bem-vindo a loja: {{nameStore}}</span>
+    
+    <form [formGroup]="registerUserByInviteForm" (ngSubmit)="onSubmit()" class="containerForm">
+        <div class="containerName flexColumn">
+            <label>Usuario</label>
+            <input type="text" formControlName="name" placeholder="Nome do usuario" [(ngModel)]="name">
+        </div>
+
+        <div class="containerEmail flexColumn">
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="vitrina@gmail.com" [(ngModel)]="email">
+        </div>
+        <div class="containerPassword flexColumn">
+            <label>Senha</label>
+            <input type="password" formControlName="password" placeholder="password" [(ngModel)]="password">
+        </div>
+        
+        <button>Criar usuario</button>
+        
+        <div class="dividerForm"></div>
+        <span>Deseja voltar? <a routerLink="/auth/register" class="navigateText">Voltar steps</a></span>
+    </form>
+    </div>
+</div>
