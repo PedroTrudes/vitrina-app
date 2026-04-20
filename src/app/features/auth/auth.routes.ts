@@ -1,3 +1,4 @@
+import { animation } from "@angular/animations";
 import { Routes } from "@angular/router";
 
 export const AUTH_ROUTES: Routes = [
@@ -15,6 +16,10 @@ export const AUTH_ROUTES: Routes = [
         path: 'register/create-user',
         loadComponent: () => import('./pages/register/create-user/create-user.component').then(m => m.CreateUserComponent),
         data: {animation: 'CreateUser'}
+    },
+    {
+        path: 'register/create-user-by-invite',
+        loadComponent: () => import('./pages/register/create-user-by-invite/create-user-by-invite.component').then(m => m.CreateUserByInviteComponent), data: {animation: 'CreateUserByInvite'}
     },
     {
         path: 'register/create-agency',
